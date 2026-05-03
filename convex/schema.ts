@@ -130,7 +130,10 @@ export default defineSchema({
       url: v.string(),
       verified: v.boolean()
     })),
-  }).index("by_org_id", ["org_id"]).index("by_booking_ref", ["booking_ref"]),
+  })
+    .index("by_org_id", ["org_id"])
+    .index("by_org_id_and_start_date", ["org_id", "start_date"])
+    .index("by_booking_ref", ["booking_ref"]),
 
   customers: defineTable({
     org_id: v.id("organizations"),

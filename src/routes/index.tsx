@@ -3,6 +3,9 @@ import { motion } from 'framer-motion'
 
 export const Route = createFileRoute('/')({
   component: LandingPage,
+  head: () => ({
+    meta: [{ title: 'OviTravel — Run Your Safari' }],
+  }),
 })
 
 function LandingPage() {
