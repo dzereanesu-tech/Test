@@ -1,0 +1,22 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-jade-50: #effaf3;
+  --color-jade-100: #d8f2e1;
+  --color-jade-200: #b4e4c5;
+  --color-jade-300: #82cf9f;
+  --color-jade-400: #4caf75;
+  --color-jade-500: #2b9356;
+  --color-jade-600: #1d7742;
+  --color-jade-700: #195f37;
+  --color-jade-800: #184b2e;
+  --color-jade-900: #153e28;
+  --color-jade-950: #0b2216;
+}
+
+@layer base {
+  html,
+  body {
+    @apply m-0 p-0;
+  }
+}
