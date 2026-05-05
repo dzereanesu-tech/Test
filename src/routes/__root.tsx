@@ -23,13 +23,21 @@ export const Route = createRootRouteWithContext<{
       {
         title: 'OviTravel',
       },
+      {
+        name: 'description',
+        content:
+          'OviTravel helps safari operators manage bookings, departures, customers, guides, and operations in one platform.',
+      },
+      {
+        name: 'theme-color',
+        content: '#0a0a0a',
+      },
     ],
     links: [
       { rel: 'stylesheet', href: appCss },
       { rel: 'icon', href: '/favicon.ico' },
     ],
   }),
-  notFoundComponent: () => <div>Route not found</div>,
   component: RootComponent,
 })
 
@@ -43,11 +51,11 @@ function RootComponent() {
 
 function RootDocument({ children }: { children: React.ReactNode }) {
   return (
-    <html>
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body className="bg-[#0a0a0a] text-stone-100 antialiased">
         {children}
         <Scripts />
       </body>
