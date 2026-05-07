@@ -1,67 +1,46 @@
-# OviTravel — Operating System for African Safari Operators
+# Huletts Sugar Website (Vite + React + TanStack Start)
 
-OviTravel is a TanStack Start + Convex web app for safari operator workflows.
+This project is a modern multi-page marketing site for Huletts Sugar.
 
-## Tech Stack
+## Built With
 
-- **Frontend:** TanStack Start (React, file-based routing)
-- **Backend:** Convex (database + server functions)
-- **Styling:** Tailwind CSS v4
+- Vite
+- React 19
+- TanStack Start (file-based routing)
+- Tailwind CSS v4
+
+## Pages
+
+- `/` Home
+- `/about` About
+- `/products` Products
+- `/sustainability` Sustainability
+- `/contact` Contact
+- `/dashboard` Partner portal preview
 
 ## Local Development
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Create local env file from example:
-   ```bash
-   cp .env.example .env.development.local
-   ```
-3. Set your Convex URL in `.env.development.local`:
-   ```bash
-   VITE_CONVEX_URL=<your-convex-dev-url>
-   ```
-4. Start the app:
-   ```bash
-   npm run dev
-   ```
+```bash
+npm install
+npm run dev
+```
 
-## Quality Checks
-
-Run before pushing:
+## Checks
 
 ```bash
 npm run lint
-npm run build
 npx tsc --noEmit
+npm run build
 ```
 
-## Production Deployment Checklist
+## Deployment (Vercel)
 
-### 1) Deploy Convex backend
-
-```bash
-npx convex deploy
-```
-
-Copy the **production Convex URL** from Convex dashboard/settings.
-
-### 2) Deploy frontend on Vercel
-
-- Import this GitHub repo into Vercel.
-- Configure environment variable:
-  - `VITE_CONVEX_URL` = your **production** Convex URL.
-- Trigger deploy.
-
-### 3) Smoke-test after deploy
-
-- Landing page loads
-- Dashboard route loads
-- Convex queries resolve without errors
-- Browser console has no runtime errors
+1. Import this GitHub repo into Vercel.
+2. Add env var:
+   - `VITE_CONVEX_URL` (Convex deployment URL)
+3. Deploy.
 
 ## Notes
 
-- `.env.development.local` is intentionally gitignored.
-- Keep secrets out of source control.
+- `.env.development.local` is gitignored.
+- Do not commit secrets.
