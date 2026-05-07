@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { motion } from 'framer-motion'
 import { PageHero, SiteShell } from '~/components/site-shell'
 
 export const Route = createFileRoute('/contact')({
@@ -19,7 +20,13 @@ function ContactPage() {
 
       <section className="mx-auto w-full max-w-7xl px-6 py-16">
         <div className="grid gap-8 lg:grid-cols-2">
-          <article className="rounded-3xl border border-white/10 bg-white/5 p-8">
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.45 }}
+            className="rounded-3xl border border-white/10 bg-white/5 p-8"
+          >
             <h2 className="text-2xl font-black">Send an enquiry</h2>
             <p className="mt-2 text-slate-400">We typically respond within one business day.</p>
 
@@ -34,13 +41,23 @@ function ContactPage() {
                   placeholder="Tell us about your procurement or partnership needs"
                 />
               </label>
-              <button className="rounded-full bg-jade-600 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-jade-500">
+              <motion.button
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.98 }}
+                className="rounded-full bg-jade-600 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-jade-500"
+              >
                 Submit Enquiry
-              </button>
+              </motion.button>
             </form>
-          </article>
+          </motion.article>
 
-          <article className="rounded-3xl border border-white/10 bg-white/5 p-8">
+          <motion.article
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.45, delay: 0.08 }}
+            className="rounded-3xl border border-white/10 bg-white/5 p-8"
+          >
             <h3 className="text-2xl font-black">Direct Contacts</h3>
             <div className="mt-5 space-y-3 text-slate-300">
               <p>
@@ -57,11 +74,17 @@ function ContactPage() {
               </p>
             </div>
 
-            <div className="mt-8 rounded-2xl border border-white/10 bg-slate-900/60 p-5 text-sm text-slate-300">
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.45, delay: 0.16 }}
+              className="mt-8 rounded-2xl border border-white/10 bg-slate-900/60 p-5 text-sm text-slate-300"
+            >
               <p className="font-semibold">Business hours</p>
               <p className="mt-2">Monday–Friday: 08:00–17:00 (SAST)</p>
-            </div>
-          </article>
+            </motion.div>
+          </motion.article>
         </div>
       </section>
     </SiteShell>

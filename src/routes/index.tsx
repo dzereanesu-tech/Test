@@ -1,4 +1,5 @@
 import { Link, createFileRoute } from '@tanstack/react-router'
+import { motion } from 'framer-motion'
 import { PageHero, SiteShell } from '~/components/site-shell'
 
 export const Route = createFileRoute('/')({
@@ -7,6 +8,12 @@ export const Route = createFileRoute('/')({
     meta: [{ title: 'Huletts Sugar — Sweetening Everyday Life' }],
   }),
 })
+
+const stats = [
+  { label: 'Years of Heritage', value: '130+' },
+  { label: 'Partner Growers', value: '2,000+' },
+  { label: 'Countries Served', value: '20+' },
+] as const
 
 function HomePage() {
   return (
@@ -18,13 +25,27 @@ function HomePage() {
       />
 
       <section className="mx-auto grid w-full max-w-7xl gap-6 px-6 py-16 md:grid-cols-3">
-        <StatCard label="Years of Heritage" value="130+" />
-        <StatCard label="Partner Growers" value="2,000+" />
-        <StatCard label="Countries Served" value="20+" />
+        {stats.map((stat, index) => (
+          <motion.div
+            key={stat.label}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.35 }}
+            transition={{ duration: 0.45, delay: index * 0.08 }}
+          >
+            <StatCard label={stat.label} value={stat.value} />
+          </motion.div>
+        ))}
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-6 pb-16">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5 }}
+          className="rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12"
+        >
           <div className="grid gap-10 md:grid-cols-2 md:items-center">
             <div>
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-jade-300">Featured Capability</p>
@@ -34,29 +55,33 @@ function HomePage() {
                 lead times, contract flexibility, and transparent account management.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
-                <Link
-                  to="/products"
-                  className="rounded-full bg-jade-600 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-jade-500"
-                >
-                  Explore Products
-                </Link>
-                <Link
-                  to="/contact"
-                  className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-bold text-slate-100 transition-colors hover:bg-white/10"
-                >
-                  Request a Quote
-                </Link>
+                <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <Link
+                    to="/products"
+                    className="rounded-full bg-jade-600 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-jade-500"
+                  >
+                    Explore Products
+                  </Link>
+                </motion.div>
+                <motion.div whileHover={{ y: -2 }} whileTap={{ scale: 0.98 }}>
+                  <Link
+                    to="/contact"
+                    className="rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-bold text-slate-100 transition-colors hover:bg-white/10"
+                  >
+                    Request a Quote
+                  </Link>
+                </motion.div>
               </div>
             </div>
 
             <div className="grid gap-3 text-sm text-slate-300">
-              <SupplyItem label="Refined White Sugar" value={92} />
-              <SupplyItem label="Brown Sugar" value={85} />
-              <SupplyItem label="Industrial Bulk Orders" value={78} />
-              <SupplyItem label="Specialty Blends" value={64} />
+              <SupplyItem label="Refined White Sugar" value={92} delay={0} />
+              <SupplyItem label="Brown Sugar" value={85} delay={0.08} />
+              <SupplyItem label="Industrial Bulk Orders" value={78} delay={0.16} />
+              <SupplyItem label="Specialty Blends" value={64} delay={0.24} />
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <section className="border-y border-white/10 bg-slate-900/40">
@@ -73,16 +98,19 @@ function HomePage() {
               title="Our Products"
               text="Browse household packs, food-service packs, and industrial bulk formats."
               to="/products"
+              delay={0}
             />
             <FeatureCard
               title="Sustainability"
               text="See how we approach responsible agriculture, energy efficiency, and community impact."
               to="/sustainability"
+              delay={0.08}
             />
             <FeatureCard
               title="About Huletts"
               text="Explore our heritage, operating model, and leadership commitment to quality."
               to="/about"
+              delay={0.16}
             />
           </div>
         </div>
@@ -91,37 +119,69 @@ function HomePage() {
   )
 }
 
-function FeatureCard({ title, text, to }: { title: string; text: string; to: '/about' | '/products' | '/sustainability' }) {
+function FeatureCard({
+  delay,
+  text,
+  title,
+  to,
+}: {
+  delay: number
+  title: string
+  text: string
+  to: '/about' | '/products' | '/sustainability'
+}) {
   return (
-    <Link
-      to={to}
-      className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-jade-400/60"
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{ duration: 0.45, delay }}
+      whileHover={{ y: -4 }}
     >
-      <h4 className="text-xl font-bold">{title}</h4>
-      <p className="mt-3 text-sm text-slate-400">{text}</p>
-    </Link>
+      <Link
+        to={to}
+        className="group block rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-jade-400/60"
+      >
+        <h4 className="text-xl font-bold transition-colors group-hover:text-jade-200">{title}</h4>
+        <p className="mt-3 text-sm text-slate-400">{text}</p>
+      </Link>
+    </motion.div>
   )
 }
 
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center">
+    <motion.div
+      whileHover={{ y: -4 }}
+      className="rounded-2xl border border-white/10 bg-white/5 p-6 text-center transition-colors hover:border-jade-400/50"
+    >
       <p className="text-3xl font-black text-jade-300">{value}</p>
       <p className="mt-2 text-xs uppercase tracking-[0.18em] text-slate-400">{label}</p>
-    </div>
+    </motion.div>
   )
 }
 
-function SupplyItem({ label, value }: { label: string; value: number }) {
+function SupplyItem({ delay, label, value }: { delay: number; label: string; value: number }) {
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0, x: 20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{ duration: 0.4, delay }}
+    >
       <div className="mb-1 flex items-center justify-between">
         <p>{label}</p>
         <p>{value}%</p>
       </div>
       <div className="h-2 rounded-full bg-slate-800">
-        <div className="h-2 rounded-full bg-jade-500" style={{ width: `${value}%` }} />
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: `${value}%` }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.7, delay: delay + 0.08 }}
+          className="h-2 rounded-full bg-jade-500"
+        />
       </div>
-    </div>
+    </motion.div>
   )
 }
