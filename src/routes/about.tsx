@@ -18,6 +18,18 @@ function AboutPage() {
         description="For over a century, Huletts Sugar has supplied households and industries with dependable sugar products while adapting to modern sustainability and supply demands."
       />
 
+      <section className="mx-auto w-full max-w-7xl px-6 py-10">
+        <motion.img
+          src="https://www.hulettssugar.co.za/wp-content/uploads/2023/08/Huletts-Heritage-Recipe-Book_600x600_V2-.png"
+          alt="Huletts heritage visual"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.5 }}
+          className="h-[320px] w-full rounded-3xl border border-white/10 object-cover"
+        />
+      </section>
+
       <section className="mx-auto w-full max-w-7xl px-6 py-16">
         <div className="grid gap-8 lg:grid-cols-2">
           <motion.article

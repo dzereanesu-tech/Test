@@ -74,11 +74,31 @@ function HomePage() {
               </div>
             </div>
 
-            <div className="grid gap-3 text-sm text-slate-300">
-              <SupplyItem label="Refined White Sugar" value={92} delay={0} />
-              <SupplyItem label="Brown Sugar" value={85} delay={0.08} />
-              <SupplyItem label="Industrial Bulk Orders" value={78} delay={0.16} />
-              <SupplyItem label="Specialty Blends" value={64} delay={0.24} />
+            <div className="space-y-4">
+              <motion.img
+                src="https://www.hulettssugar.co.za/wp-content/uploads/2021/07/ProductsCarousel_Industrial_800x800.png"
+                alt="Huletts industrial sugar product"
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.5 }}
+                className="h-52 w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <motion.img
+                src="https://www.hulettssugar.co.za/wp-content/uploads/2021/03/ProductsCarousel_Special_800x800.png"
+                alt="Huletts specialty sugar product"
+                initial={{ opacity: 0, scale: 0.96 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.5, delay: 0.08 }}
+                className="h-52 w-full rounded-2xl border border-white/10 object-cover"
+              />
+              <div className="grid gap-3 pt-2 text-sm text-slate-300">
+                <SupplyItem label="Refined White Sugar" value={92} delay={0} />
+                <SupplyItem label="Brown Sugar" value={85} delay={0.08} />
+                <SupplyItem label="Industrial Bulk Orders" value={78} delay={0.16} />
+                <SupplyItem label="Specialty Blends" value={64} delay={0.24} />
+              </div>
             </div>
           </div>
         </motion.div>

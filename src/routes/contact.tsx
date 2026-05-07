@@ -58,6 +58,11 @@ function ContactPage() {
             transition={{ duration: 0.45, delay: 0.08 }}
             className="rounded-3xl border border-white/10 bg-white/5 p-8"
           >
+            <img
+              src="https://www.hulettssugar.co.za/wp-content/uploads/2021/02/BlockImages_News-Feature_800x800-2.png"
+              alt="Huletts team and operations"
+              className="mb-5 h-40 w-full rounded-2xl border border-white/10 object-cover"
+            />
             <h3 className="text-2xl font-black">Direct Contacts</h3>
             <div className="mt-5 space-y-3 text-slate-300">
               <p>

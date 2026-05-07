@@ -24,24 +24,28 @@ function ProductsPage() {
             title="Refined White Sugar"
             description="Clean crystal sugar for daily use in homes, cafes, and hospitality settings."
             format="1kg, 2kg, 5kg"
+            image="https://www.hulettssugar.co.za/wp-content/uploads/2021/03/ProductsCarousel_Special_800x800.png"
             delay={0}
           />
           <ProductCard
             title="Brown Sugar"
             description="Full-bodied flavor profile ideal for baking, beverages, and gourmet applications."
             format="500g, 1kg, 5kg"
+            image="https://www.hulettssugar.co.za/wp-content/uploads/2021/07/ProductsCarousel_Industrial_800x800.png"
             delay={0.06}
           />
           <ProductCard
             title="Icing Sugar"
             description="Ultra-fine texture for confectionery, toppings, and delicate dessert work."
             format="500g, 2kg"
+            image="https://www.hulettssugar.co.za/wp-content/uploads/2021/02/MainHeader_growingASweet_500x400.png"
             delay={0.12}
           />
           <ProductCard
             title="Industrial Bulk"
             description="Food-manufacturing grade supply available for consistent production throughput."
             format="25kg, 50kg, Bulk"
+            image="https://www.hulettssugar.co.za/wp-content/uploads/2021/02/BlockImages_News-Feature_800x800-2.png"
             delay={0.18}
           />
         </div>
@@ -86,11 +90,13 @@ function ProductCard({
   delay,
   description,
   format,
+  image,
   title,
 }: {
   delay: number
   description: string
   format: string
+  image: string
   title: string
 }) {
   return (
@@ -102,6 +108,7 @@ function ProductCard({
       whileHover={{ y: -4 }}
       className="rounded-2xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-jade-400/60"
     >
+      <img src={image} alt={title} className="mb-4 h-32 w-full rounded-xl border border-white/10 object-cover" />
       <h3 className="text-xl font-bold">{title}</h3>
       <p className="mt-3 text-sm text-slate-400">{description}</p>
       <p className="mt-5 rounded-full border border-jade-500/30 bg-jade-500/10 px-3 py-1 text-xs font-semibold text-jade-300">

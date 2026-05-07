@@ -18,6 +18,18 @@ function SustainabilityPage() {
         description="Our sustainability approach focuses on agricultural resilience, efficient processing, and practical community impact across the value chain."
       />
 
+      <section className="mx-auto w-full max-w-7xl px-6 py-10">
+        <motion.img
+          src="https://www.hulettssugar.co.za/wp-content/uploads/2021/02/MainHeader_growingASweet_500x400.png"
+          alt="Huletts sustainability and growing future"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.5 }}
+          className="h-[320px] w-full rounded-3xl border border-white/10 object-cover"
+        />
+      </section>
+
       <section className="mx-auto w-full max-w-7xl px-6 py-16">
         <div className="grid gap-6 md:grid-cols-3">
           <PillarCard

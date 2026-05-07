@@ -63,6 +63,11 @@ function DashboardPage() {
             transition={{ duration: 0.45, delay: 0.07 }}
             className="rounded-2xl border border-jade-500/30 bg-jade-500/10 p-6"
           >
+            <img
+              src="https://www.hulettssugar.co.za/wp-content/uploads/2021/03/ProductsCarousel_Special_800x800.png"
+              alt="Huletts product planning"
+              className="mb-4 h-28 w-full rounded-xl border border-white/10 object-cover"
+            />
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-jade-300">Action Required</p>
             <h3 className="mt-2 text-xl font-black">Review June volume forecast</h3>
             <p className="mt-3 text-sm text-slate-300">
